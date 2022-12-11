@@ -1,0 +1,8 @@
+$purple: #686de0;
+$gray: #c3cfe2;
+$white: #fff;
+
+@mixin flex {
+    display: flex;
+    justify-content: center;
+}
