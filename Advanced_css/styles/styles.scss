@@ -1,0 +1,193 @@
+@import "variables";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+/*part 1 - Testimonial*/
+body{
+    width: 100%;
+    background-color: $gray;
+    font-family:Arial, Helvetica, sans-serif;
+    align-content: center;
+}
+
+p{
+    @include flex;
+    height: 300px;
+    width: 385px;
+    color: slategray;
+    background-color: $white;
+    border-radius: 5% 5% 0% 0%;
+    padding: 35px;
+    font-size: larger;
+    line-height: 170%;
+}
+
+footer{
+    @include flex;
+    height: 200px;
+    width: 385px;
+    align-items: center;
+    background-color: $purple;
+    padding:5%;
+    border-radius: 0% 0% 5% 5%;
+    img{
+        @include flex;
+        border-radius: 120px ;
+        border: 4px solid $white;
+        position:absolute;
+        translate: 0px -100px  ;
+       }
+    h3{
+        color: $white;
+        text-align:center;
+        text-transform: uppercase;
+        font-weight: lighter;
+    }
+    h4{
+        color: #c5c5e5;
+        text-align:center;
+        font-weight: lighter;
+        padding-top: 15px;
+    }
+}
+
+.container{
+    box-shadow: 0px 10px 10px -1px rgba(83, 83, 83, 0.75);
+    border: 1px ;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    border-radius: 0% 0% 5% 5%;
+    width: 385px;
+}
+
+/*part 2 - Portfolio_Grid*/
+.container_grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    margin: 20px;
+}
+
+.card{
+    position: relative;
+    img{
+        @include width;
+    }
+    .overlay{
+        @include width;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        opacity: 0;
+        transition: 0.7s ease;
+        background-color: $overlayColor;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .overlay:hover{
+        opacity: 1;
+    }
+    .button{
+        display: flex;
+        background-color: $white;
+        padding:5px 10px;
+        font-size:20px;
+        border-radius: 4px;
+        position:absolute;
+        cursor: pointer;
+        border: none;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .container_grid{
+     grid-template-columns: repeat(2, 1fr) ;
+     grid-gap: 20px;
+     margin: 30px 30px;
+    } 
+}
+ 
+ @media screen and (min-width: 1024px){
+     .container_grid{
+         grid-template-columns: repeat(3, auto);
+         grid-gap: 25px;
+         margin: 30px 150px;
+    }
+}
+
+/* Part 3 - Social Media Buttons*/
+.socials{
+    position: fixed;
+    top: 200px;
+    right: -200px;
+    padding: 0;
+    transform: translateY(-12%);
+    width: 250px;
+    li{
+        list-style-type: none;
+        padding: 10px;
+        &:hover {
+            transform: translateX(-80%);
+            transition: 0.5s ease-in-out;
+        }
+    }
+    a{
+        color: $white;
+        padding-left: 20px;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+  }
+
+.laptop{
+    background-color: $blog;
+    &::before {
+        @include icon;
+        font: var(--fa-font-solid);
+        content: "\f5fc";
+    }
+
+}
+.twitter{
+    background-color: $twitter;
+    &::before {
+        @include icon;
+        font: var(--fa-font-brands);
+        content: "\f099";
+    }
+}
+
+.linkedin{
+    background-color: $linkedin;
+    &::before {
+        @include icon;
+        font: var(--fa-font-brands);
+        content: "\f0e1";
+    }
+}
+
+.facebook{
+    background-color: $fb;
+    &::before {
+        @include icon;
+        font: var(--fa-font-brands);
+        content: "\f39e";
+    }
+}
+
+.github{
+    background-color: $github;
+    &::before {
+        @include icon;
+        font: var(--fa-font-brands);
+        content: "\f09b";
+    }
+}
